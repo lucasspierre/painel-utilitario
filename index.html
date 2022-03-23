@@ -1,0 +1,79 @@
+<html lang="pt-br">
+
+<head>
+    <title>Teste</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://fonts.cdnfonts.com/css/rawline" rel="stylesheet">
+    <link href="src/css/bootstrap.min.css" rel="stylesheet">
+    <script src="src/js/bootstrap.bundle.min.js"></script>
+    <link href="src/css/body.css" rel="stylesheet">
+    <script src="src/js/script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                            aria-selected="true">Gerar Links</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                            aria-selected="false">Gerar PDF</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                            aria-selected="false">Em breve</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                        aria-labelledby="pills-home-tab">...</div>
+
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <div class="form-group row">
+                            <div class="col-md-12 mb-2">
+                                <p class="mb-1">Conteúdo de compartilhamento (opcional)</p> <textarea id="conteudo"
+                                    type="text" placeholder="Mensagem que acompanhará"
+                                    class="form-control input-box rm-border"></textarea>
+                            </div>
+                        </div>
+                        <button type="button" onclick="exibir()" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            Visualizar
+                        </button>
+                    </div>
+
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                        ...</div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen" >
+                <div class="modal-content container estruct">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Pré-Visualização do documento que será gerado. Atenção! Se o botão de gerar o PDF for acionado, não poderá ser feito modificações, tendo que reiniciar do zero, caso queira editar o conteúdo, pressione ESC! ou clique em Voltar! </h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Voltar</button>
+                        <button type="button" onclick="resetar()" class="btn btn-danger">Resetar</button>
+                        <button type="button" onclick="printar()" class="btn btn-success">Gerar PDF</button>
+                    </div>
+                    <div class="modal-body container document" id="saida">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
