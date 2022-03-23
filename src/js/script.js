@@ -16,4 +16,4 @@ function exibir() {
 
 function resetar() {
     window.location.href = window.location.href
-}
+} 
