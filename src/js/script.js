@@ -23,6 +23,7 @@ function show() {
   
     str = str.replace(/[^a-z0-9 -]/g, '') // remover caracteres inválidos
       .replace(/\s+/g, '-') // Remover espaços
+      .replace(/-+/g, ''); //Remover traços
 
     document.title = str;
     document.querySelector("[name='diretorio']").value = '<!--Gerar PDF--><a href="https://www.gov.br/pt-br/campanhas/nosso-brasil/saiba-tudo/documentos/' + str + '.pdf" download target="_blank" title="Baixar PDF"><span class="fas fa-print" style="font-size: 22px; color: #2980F2; padding: 5px"> </span></a>'
