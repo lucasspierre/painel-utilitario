@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="http://fonts.cdnfonts.com/css/rawline" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="src/css/bootstrap.min.css" rel="stylesheet">
     <script src="src/js/bootstrap.bundle.min.js"></script>
     <link href="src/css/body.css" rel="stylesheet">
@@ -17,45 +20,51 @@
         <div class="card">
             <div class="card-body">
                 <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                    <li class="nav-item">
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#gerar-link" type="button"
                             aria-selected="true">Gerar Links</button>
                     </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
-                            aria-selected="false">Gerar PDF</button>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#gerar-pdf" type="button">Gerar
+                            PDF</button>
                     </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
-                            aria-selected="false">Em breve</button>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button"
+                            disabled>Em breve</button>
                     </li>
                 </ul>
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
-                        aria-labelledby="pills-home-tab">...</div>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="gerar-link">...</div>
 
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <div class="form-group row mb-3">
+                    <div class="tab-pane fade" id="gerar-pdf">
+                        <div class="form-group row">
                             <div class="col-md-12 mb-">
-                                <p class="mb-1">URL da página (obrigatório)</p>
-                                <input id="urlimagem" type="url" placeholder="insira o link da página"
-                                    class="form-control input-box rm-border" onkeyup="javascript: verify(this)">
+                                <p class="mb-1">Nome do arquivo (obrigatório) :</p>
+                                <input id="nomearquiv" type="text"
+                                    placeholder="insira o nome do arquivo de sua preferencia"
+                                    class="form-control input-box rm-border">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12 mb-">
+                                <p class="mb-1">URL da imagem (opcional) :</p>
+                                <input id="urlimagem" type="url" placeholder="insira o link do banner página"
+                                    class="form-control input-box rm-border">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-md-12 mb-2">
-                                <p class="mb-1">Conteúdo da página (obrigatório)</p> <textarea id="conteudo" type="text"
-                                    placeholder="Mensagem que acompanhará" class="form-control input-box rm-border"
-                                    rows="5" onkeyup="javascript: verify(this)"></textarea>
+                                <p class="mb-1">Conteúdo da página (obrigatório) :</p> <textarea id="conteudo"
+                                    type="text" placeholder="Mensagem que acompanhará"
+                                    class="form-control input-box rm-border" rows="5"
+                                    onkeyup="javascript: verify(this)"></textarea>
                             </div>
                         </div>
                         <button type="button" id="btnEnvia" onclick="show()" class="btn btn-primary"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal" disabled="disabled">
+                            data-bs-toggle="modal" data-bs-target="#ModalServices" disabled="disabled">
                             Visualizar
                         </button>
+
                     </div>
 
                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
@@ -63,27 +72,34 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="ModalServices" tabindex="-1" aria-labelledby="ModalServicesLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content container estruct">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Pré-Visualização do documento que será gerado.
-                            Atenção! Se o botão de gerar o PDF for acionado, não poderá ser feito modificações, tendo
+                        <h5 class="modal-title" id="ModalServicesLabel">Pré-Visualização do documento que será gerado.
+                            <b style="color: #dc3545;">Atenção!</b> Copie o código do botão de acionamento antes de
+                            gerar o PDF, se for acionado, não poderá
+                            ser feito modificações, tendo
                             que reiniciar do zero, caso queira editar o conteúdo, pressione ESC! ou clique em Voltar!
                         </h5>
+                        <div class="input-group">
+                            <input type="text" name="diretorio" id="diretorio" class="form-control" readonly>
+                            <button class="btn btn-dark" onclick="selectcopy()" type="button"><i
+                                    class="fas fa-copy"></i></button>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
                             aria-label="Close">Voltar</button>
                         <button type="button" onclick="reset()" class="btn btn-danger">Resetar</button>
-                        <button type="button" onclick="print()" class="btn btn-success">Gerar PDF</button>
+                        <button type="button" onclick="print_page()" class="btn btn-success">Gerar PDF</button>
                     </div>
                     <div class="modal-body container document" id="saida">
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 
 </body>
