@@ -156,3 +156,28 @@ function dataOutUrl() {
         `<!--Whatsapp-->
 <a href="https://api.whatsapp.com/send?text=` + conteudo + " " + url + `"target="_blank" title="Whatsapp"><span class="fab fa-whatsapp fa-lg text-info pr-1"> </span></a>`
 }
+
+///contador
+function contadorTempo() {
+    var hoje = new Date(Date.now()).getTime();
+    let dataEvento = new Date('03/28/2023 16:36:00').getTime();
+    var t = Math.floor(dataEvento - hoje);
+
+    var segundos = Math.floor((t % (1000 * 60)) / 1000);
+    var minutos = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+    var horas = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var dias = Math.floor(t / (1000 * 60 * 60 * 24));
+    if (t > 0) {
+        document.getElementById("dias").innerHTML = dias.toLocaleString('pt-BR', { minimumIntegerDigits: 2, useGrouping: false });
+        document.getElementById("horas").innerHTML = horas.toLocaleString('pt-BR', { minimumIntegerDigits: 2, useGrouping: false });
+        document.getElementById("minutos").innerHTML = minutos.toLocaleString('pt-BR', { minimumIntegerDigits: 2, useGrouping: false });
+        document.getElementById("segundos").innerHTML = segundos.toLocaleString('pt-BR', { minimumIntegerDigits: 2, useGrouping: false });
+    } else {
+        document.getElementById("dias").innerHTML = "00";
+        document.getElementById("horas").innerHTML = "00";
+        document.getElementById("minutos").innerHTML = "00";
+        document.getElementById("segundos").innerHTML = "00";
+    }
+}
+contadorTempo();
+setInterval(contadorTempo, 1000);
