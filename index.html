@@ -11,13 +11,14 @@
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="src/css/bootstrap.min.css" rel="stylesheet">
-    <script src="src/js/bootstrap.bundle.min.js"></script>
     <link href="src/css/body.css" rel="stylesheet">
+    <script src="src/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="src/js/script.js"></script>
 </head>
 
 <body>
-        <div class="text-center navtop">
+    <div class="text-center navtop">
         <ul class="nav justify-content-center">
             <li class="nav-item">
                 <h1>
@@ -32,8 +33,8 @@
             <div class="card-body">
                 <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
                     <li class="nav-item">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#gerar-link" type="button"
-                            aria-selected="true">Gerar Links</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#gerar-link"
+                            type="button">Gerar Links</button>
                     </li>
                     <li class="nav-item">
                         <button class="nav-link" data-bs-toggle="pill" data-bs-target="#gerar-pdf" type="button">Gerar
@@ -45,74 +46,211 @@
                     </li>
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane fade show active" id="gerar-link">...</div>
+
+                    <!--GERADOR DE LINK-->
+
+                    <div class="tab-pane fade show active" id="gerar-link">
+                        <div class="row justify-content-center">
+                            <div class="col-7">
+                                <div class="form-group row">
+                                    <div class="col-md-12 mb-0">
+                                        <p class="mb-1">URL da página (obrigatório) :</p>
+                                        <input id="urlpage" type="url" placeholder="insira o link da página"
+                                            class="form-control input-box rm-border">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-12 mb-2">
+                                        <p class="mb-1">Conteúdo de compartilhamento (opcional) :</p> <textarea
+                                            id="textpage" type="text" placeholder="Mensagem que acompanhará"
+                                            class="form-control input-box rm-border" rows="3"></textarea>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="button" id="btnLink" onclick="dataOutUrl()" class="btn btn-primary"
+                                        data-bs-toggle="modal" data-bs-target="#resultadoCodigo" disabled="disabled">
+                                        Gerar código
+                                    </button>
+                                    <button type="button" onclick="reset()" class="btn btn-danger">Limpar dados</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--GERADOR DE PDF-->
 
                     <div class="tab-pane fade" id="gerar-pdf">
-                        <div class="form-group row">
-                            <div class="col-md-12 mb-">
-                                <p class="mb-1">Nome do arquivo (obrigatório) :</p>
-                                <input id="nomearquiv" type="text"
-                                    placeholder="insira o nome do arquivo de sua preferencia"
-                                    class="form-control input-box rm-border">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-12 mb-">
-                                <p class="mb-1">URL da imagem (opcional) :</p>
-                                <input id="urlimagem" type="url" placeholder="insira o link do banner página"
-                                    class="form-control input-box rm-border">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-12 mb-2">
-                                <p class="mb-1">Conteúdo da página (obrigatório) :</p> <textarea id="conteudo"
-                                    type="text" placeholder="Mensagem que acompanhará"
-                                    class="form-control input-box rm-border" rows="5"
-                                    onkeyup="javascript: verify(this)"></textarea>
-                            </div>
-                        </div>
-                        <button type="button" id="btnEnvia" onclick="show()" class="btn btn-primary"
-                            data-bs-toggle="modal" data-bs-target="#ModalServices" disabled="disabled">
-                            Visualizar
-                        </button>
+                        <div class="row justify-content-center">
+                            <div class="col-7">
+                                <div class="form-group row">
+                                    <div class="col-md-12 mb-0">
+                                        <p class="mb-1">Nome do arquivo (obrigatório) :</p>
+                                        <input id="titledoc" type="text"
+                                            placeholder="insira o nome do arquivo de sua preferencia"
+                                            class="form-control input-box rm-border">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-12 mb-0">
+                                        <p class="mb-1">URL da(s) imagem(ns) (opcional) :</p>
+                                    </div>
+                                    <div class="input-group mb-1">
+                                        <input id="imageurl" type="url"
+                                            placeholder="insira o link da 1ª imagem da página" class="form-control">
+                                        <button class="btn btn-primary" id="btn" onclick="collapbtn()" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#opcao2">
+                                            <i class="fas fa-plus-circle"></i>
+                                        </button>
 
+                                    </div>
+                                    <div class="collapse" id="opcao2">
+                                        <div class="input-group mb-1">
+                                            <input id="imageurl2" type="url"
+                                                placeholder="insira o link da 2ª imagem da página" class="form-control">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-align-justify"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="collapse" id="opcao3">
+                                        <div class="input-group mb-1">
+                                            <input id="imageurl3" type="url"
+                                                placeholder="insira o link da 3ª imagem da página" class="form-control">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-align-justify"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="collapse" id="opcao4">
+                                        <div class="input-group mb-1">
+                                            <input id="imageurl4" type="url"
+                                                placeholder="insira o link da 4ª imagem da página" class="form-control">
+                                            <button class="btn btn-primary" id="btn" onclick="collapbtn()"
+                                                type="button">
+                                                <i class="fas fa-minus-circle"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-12 mb-2">
+                                        <p class="mb-1">Conteúdo da página (obrigatório) :</p> <textarea id="textdoc"
+                                            type="text" placeholder="Mensagem que acompanhará"
+                                            class="form-control input-box rm-border" rows="5"></textarea>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="button" id="btnPdf" onclick="dataOutPdf()" class="btn btn-primary"
+                                        data-bs-toggle="modal" data-bs-target="#ModalServices" disabled="disabled">
+                                        Visualizar
+                                    </button>
+                                    <button type="button" onclick="reset()" class="btn btn-danger">Limpar dados</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+                    <!--EM BREVE-->
 
                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                         ...</div>
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="ModalServices" tabindex="-1" aria-labelledby="ModalServicesLabel"
+
+        <!--MODAL GERADOR DE LINK-->
+
+        <div class="modal fade" id="resultadoCodigo" tabindex="-1" aria-labelledby="resultadoCodigoLabel"
             aria-hidden="true">
-            <div class="modal-dialog modal-fullscreen">
-                <div class="modal-content container estruct">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="ModalServicesLabel">Pré-Visualização do documento que será gerado.
-                            <b style="color: #dc3545;">Atenção!</b> Copie o código do botão de acionamento antes de
-                            gerar o PDF, se for acionado, não poderá
-                            ser feito modificações, tendo
-                            que reiniciar do zero, caso queira editar o conteúdo, pressione ESC! ou clique em Voltar!
-                        </h5>
+                        <h5 class="modal-title" id="resultadoCodigoLabel">Código gerado com Sucesso!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <label>Todas as redes:</label>
                         <div class="input-group">
-                            <input type="text" name="diretorio" id="diretorio" class="form-control" readonly>
-                            <button class="btn btn-dark" onclick="selectcopy()" type="button"><i
+                            <textarea type="text" id="allPageOut" class="form-control" rows="6" readonly></textarea>
+                            <button class="btn btn-primary" onclick="selectcopyUrl()" type="button"><i
+                                    class="fas fa-copy"></i></button>
+                        </div>
+                        <label>Facebook:</label>
+                        <div class="input-group">
+                            <textarea type="text" id="facebookOut" class="form-control" rows="2" readonly></textarea>
+                            <button class="btn btn-primary" onclick="selectcopyFacebook()" type="button"><i
+                                    class="fas fa-copy"></i></button>
+                        </div>
+                        <label>Twitter:</label>
+                        <div class="input-group">
+                            <textarea type="text" id="twitterOut" class="form-control" rows="2" readonly></textarea>
+                            <button class="btn btn-primary" onclick="selectcopyTwitter()" type="button"><i
+                                    class="fas fa-copy"></i></button>
+                        </div>
+                        <label>Whatsapp:</label>
+                        <div class="input-group">
+                            <textarea type="text" id="whatsappOut" class="form-control" rows="2" readonly></textarea>
+                            <button class="btn btn-primary" onclick="selectcopyOut()" type="button"><i
                                     class="fas fa-copy"></i></button>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
-                            aria-label="Close">Voltar</button>
-                        <button type="button" onclick="reset()" class="btn btn-danger">Resetar</button>
-                        <button type="button" onclick="print_page()" class="btn btn-success">Gerar PDF</button>
+                </div>
+            </div>
+        </div>
+
+        <!--MODAL GERADOR DE PDF-->
+
+        <div class="modal fade" id="ModalServices" tabindex="-1" aria-labelledby="ModalServicesLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content estruct-doc">
+                    <div class="modal-header estruct-header">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col text-center">
+                                    Pré-Visualização do documento que será gerado. Copie o código do botão de
+                                    acionamento
+                                    antes de
+                                    gerar o PDF. Para resetar a página clique no X.
+                                </div>
+                            </div>
+                            <div class="row align-items-center">
+                                <div class="col-4 text-center">
+                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"
+                                        aria-label="Close" title="Voltar"><i class="fas fa-arrow-left"></i></button>
+                                    <button type="button" onclick="print_page()" id="generatepdf"
+                                        class="btn btn-outline-secondary" disabled="disabled"><i class="fas fa-print"
+                                            title="Gerar PDF"></i></button>
+                                    <button type="button" onclick="reset()" title="Resetar"
+                                        class="btn btn-outline-secondary"><i class="fas fa-times"></i></button>
+                                </div>
+                                <div class="col-3">
+                                </div>
+                                <div class="col-4">
+                                    <div class="input-group">
+                                        <input type="text" name="diretory" id="diretory"
+                                            class="form-control form-control-sm form" readonly>
+                                        <button class="btn btn-outline-secondary" onclick="selectcopyDoc()"
+                                            type="button"><i class="fas fa-copy"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-body container document" id="saida">
+                    <div class="modal-body container document" id="pdfdocout">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">Desenvolvido por Lucas Pierre.</span>
+        </div>
+    </footer>
 </body>
 
 </html>
