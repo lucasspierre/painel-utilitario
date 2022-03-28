@@ -41,8 +41,8 @@
                             PDF</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button"
-                            disabled>Em breve</button>
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#contador-regressivo" type="button"
+                            >Contador Regressivo (Produção)</button>
                     </li>
                 </ul>
                 <div class="tab-content">
@@ -153,98 +153,114 @@
 
                     <!--EM BREVE-->
 
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                        ...</div>
-                </div>
-            </div>
-        </div>
-
-        <!--MODAL GERADOR DE LINK-->
-
-        <div class="modal fade" id="resultadoCodigo" tabindex="-1" aria-labelledby="resultadoCodigoLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="resultadoCodigoLabel">Código gerado com Sucesso!</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <label>Todas as redes:</label>
-                        <div class="input-group">
-                            <textarea type="text" id="allPageOut" class="form-control" rows="6" readonly></textarea>
-                            <button class="btn btn-primary" onclick="selectcopyUrl()" type="button"><i
-                                    class="fas fa-copy"></i></button>
+                    <div class="tab-pane fade" id="contador-regressivo">
+                        <div>
+                            <h1 id="dias">00</h1>
+                            <p>Dias</p>
                         </div>
-                        <label>Facebook:</label>
-                        <div class="input-group">
-                            <textarea type="text" id="facebookOut" class="form-control" rows="2" readonly></textarea>
-                            <button class="btn btn-primary" onclick="selectcopyFacebook()" type="button"><i
-                                    class="fas fa-copy"></i></button>
+                        <div>
+                            <h1 id="horas">00</h1>
+                            <p>Horas</p>
                         </div>
-                        <label>Twitter:</label>
-                        <div class="input-group">
-                            <textarea type="text" id="twitterOut" class="form-control" rows="2" readonly></textarea>
-                            <button class="btn btn-primary" onclick="selectcopyTwitter()" type="button"><i
-                                    class="fas fa-copy"></i></button>
+                        <div>
+                            <h1 id="minutos">00</h1>
+                            <p>Minutos</p>
                         </div>
-                        <label>Whatsapp:</label>
-                        <div class="input-group">
-                            <textarea type="text" id="whatsappOut" class="form-control" rows="2" readonly></textarea>
-                            <button class="btn btn-primary" onclick="selectcopyOut()" type="button"><i
-                                    class="fas fa-copy"></i></button>
+                        <div>
+                            <h1 id="segundos">00</h1>
+                            <p>Segundos</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!--MODAL GERADOR DE PDF-->
+    <!--MODAL GERADOR DE LINK-->
 
-        <div class="modal fade" id="ModalServices" tabindex="-1" aria-labelledby="ModalServicesLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-fullscreen">
-                <div class="modal-content estruct-doc">
-                    <div class="modal-header estruct-header">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col text-center">
-                                    Pré-Visualização do documento que será gerado. Copie o código do botão de
-                                    acionamento
-                                    antes de
-                                    gerar o PDF. Para resetar a página clique no X.
-                                </div>
-                            </div>
-                            <div class="row align-items-center">
-                                <div class="col-4 text-center">
-                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"
-                                        aria-label="Close" title="Voltar"><i class="fas fa-arrow-left"></i></button>
-                                    <button type="button" onclick="print_page()" id="generatepdf"
-                                        class="btn btn-outline-secondary" disabled="disabled"><i class="fas fa-print"
-                                            title="Gerar PDF"></i></button>
-                                    <button type="button" onclick="reset()" title="Resetar"
-                                        class="btn btn-outline-secondary"><i class="fas fa-times"></i></button>
-                                </div>
-                                <div class="col-3">
-                                </div>
-                                <div class="col-4">
-                                    <div class="input-group">
-                                        <input type="text" name="diretory" id="diretory"
-                                            class="form-control form-control-sm form" readonly>
-                                        <button class="btn btn-outline-secondary" onclick="selectcopyDoc()"
-                                            type="button"><i class="fas fa-copy"></i></button>
-                                    </div>
-                                </div>
-                                <div class="col-1">
-                                </div>
+    <div class="modal fade" id="resultadoCodigo" tabindex="-1" aria-labelledby="resultadoCodigoLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resultadoCodigoLabel">Código gerado com Sucesso!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label>Todas as redes:</label>
+                    <div class="input-group">
+                        <textarea type="text" id="allPageOut" class="form-control" rows="6" readonly></textarea>
+                        <button class="btn btn-primary" onclick="selectcopyUrl()" type="button"><i
+                                class="fas fa-copy"></i></button>
+                    </div>
+                    <label>Facebook:</label>
+                    <div class="input-group">
+                        <textarea type="text" id="facebookOut" class="form-control" rows="2" readonly></textarea>
+                        <button class="btn btn-primary" onclick="selectcopyFacebook()" type="button"><i
+                                class="fas fa-copy"></i></button>
+                    </div>
+                    <label>Twitter:</label>
+                    <div class="input-group">
+                        <textarea type="text" id="twitterOut" class="form-control" rows="2" readonly></textarea>
+                        <button class="btn btn-primary" onclick="selectcopyTwitter()" type="button"><i
+                                class="fas fa-copy"></i></button>
+                    </div>
+                    <label>Whatsapp:</label>
+                    <div class="input-group">
+                        <textarea type="text" id="whatsappOut" class="form-control" rows="2" readonly></textarea>
+                        <button class="btn btn-primary" onclick="selectcopyOut()" type="button"><i
+                                class="fas fa-copy"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--MODAL GERADOR DE PDF-->
+
+    <div class="modal fade" id="ModalServices" tabindex="-1" aria-labelledby="ModalServicesLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content estruct-doc">
+                <div class="modal-header estruct-header">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col text-center">
+                                Pré-Visualização do documento que será gerado. Copie o código do botão de
+                                acionamento
+                                antes de
+                                gerar o PDF. Para resetar a página clique no X.
                             </div>
                         </div>
+                        <div class="row align-items-center">
+                            <div class="col-4 text-center">
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"
+                                    aria-label="Close" title="Voltar"><i class="fas fa-arrow-left"></i></button>
+                                <button type="button" onclick="print_page()" id="generatepdf"
+                                    class="btn btn-outline-secondary" disabled="disabled"><i class="fas fa-print"
+                                        title="Gerar PDF"></i></button>
+                                <button type="button" onclick="reset()" title="Resetar"
+                                    class="btn btn-outline-secondary"><i class="fas fa-times"></i></button>
+                            </div>
+                            <div class="col-3">
+                            </div>
+                            <div class="col-4">
+                                <div class="input-group">
+                                    <input type="text" name="diretory" id="diretory"
+                                        class="form-control form-control-sm form" readonly>
+                                    <button class="btn btn-outline-secondary" onclick="selectcopyDoc()" type="button"><i
+                                            class="fas fa-copy"></i></button>
+                                </div>
+                            </div>
+                            <div class="col-1">
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-body container document" id="pdfdocout">
-                    </div>
+                </div>
+                <div class="modal-body container document" id="pdfdocout">
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
