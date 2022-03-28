@@ -23,20 +23,31 @@ body {
     width: 792px;
     background: #ffffff;
     color: #555;
-
-
 }
 
-.estruct {
-    background: #808080;
-    color: white;
+.estruct-doc {
+    background: rgb(82, 86, 89);
+    color: rgb(255, 255, 255);
 
 }
 
 .bodycard {
     border-color: white;
 }
+
 .navtop {
     margin-top: 20px;
     color: #0c326f;
+}
+
+.estruct-header {
+    background-color: rgb(50, 54, 57);
+    border-bottom: rgb(50, 54, 57);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+footer {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
 }
