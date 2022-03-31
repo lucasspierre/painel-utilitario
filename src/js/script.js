@@ -136,12 +136,12 @@ function dataOutUrl() {
     var conteudo = document.getElementById("textpage").value;
 
     document.getElementById('allPageOut').innerText =
-        `<!--Facebook-->
+        `<p>Compartilhe: <!--Facebook-->
 <a href="https://www.facebook.com/sharer.php?u=` + url + `&quote=` + conteudo + `"target="_blank" title="Facebook"><span class="fab fa-facebook-f fa-lg text-info pr-1"> </span></a>
 <!--Twitter-->
 <a href="https://twitter.com/share?text=` + conteudo + `&url=` + url + `"target="_blank" title="Twitter"><span class="fab fa-twitter fa-lg text-info pr-1"> </span></a>
 <!--Whatsapp-->
-<a href="https://api.whatsapp.com/send?text=` + conteudo + " " + url + `"target="_blank" title="Whatsapp"><span class="fab fa-whatsapp fa-lg text-info pr-1"> </span></a>`
+<a href="https://api.whatsapp.com/send?text=` + conteudo + " " + url + `"target="_blank" title="Whatsapp"><span class="fab fa-whatsapp fa-lg text-info pr-1"> </span></a></p>`
 
     document.getElementById('facebookOut').innerText =
         `<!--Facebook-->
