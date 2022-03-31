@@ -22,7 +22,7 @@ function dataOutPdf() {
     //.replace(/[- ]+/g, "-"); //Remover traços duplos
 
     document.title = str;
-    document.querySelector("[name='diretory']").value = `<!--Gerar PDF--><a href="https://www.gov.br/pt-br/campanhas/nosso-brasil/saiba-tudo/documentos/` + str + `.pdf" download target="_blank" title="Baixar PDF"><span class="fas fa-print fa-lg text-info pr-1"> </span></a>`
+    document.querySelector("[name='diretory']").value = `<!--Gerar PDF--><a href="https://www.gov.br/pt-br/campanhas/nosso-brasil/saiba-tudo/documentos/` + str + `.pdf" download="`+ str +`" target="_blank" title="Baixar PDF"><span class="fas fa-print fa-lg text-info pr-1"> </span></a>`
     var url = document.getElementById("imageurl").value;
     var url2 = document.getElementById("imageurl2").value;
     var url3 = document.getElementById("imageurl3").value;
